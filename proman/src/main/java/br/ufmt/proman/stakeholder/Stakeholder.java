@@ -32,15 +32,6 @@ public class Stakeholder {
     @Column(name = "nome_stakeholder", length = 100)
     private String nomeStakeholder;
 
-    @Column(name = "funcao_stakeholder", length = 100)
-    private String funcaoStakeholder;
-
-    @Column(name = "influencia_stakeholder", length = 100)
-    private String influenciaStakeholder;
-
-    @Column(name = "interesse_stakeholder", length = 100)
-    private String interesseStakeholder;
-
     @OneToMany(mappedBy = "stakeholder")
     private List<ProjetoStakeholder> projetoStakeholders;
 

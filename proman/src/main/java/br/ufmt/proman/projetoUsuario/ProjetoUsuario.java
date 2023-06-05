@@ -1,5 +1,6 @@
 package br.ufmt.proman.projetoUsuario;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -28,6 +29,9 @@ public class ProjetoUsuario {
     @GeneratedValue(generator = "seqProjetoUsuario", strategy = GenerationType.SEQUENCE)
     private int idProjetousuario;
 
+    @Column(name = "relatorio_projeto_usuario", length = 1000)
+    private String relatorioProjetoUsuario;
+    
     @ManyToOne
     @JoinColumn(name = "projeto_id")
     private Projeto projeto;

@@ -1,5 +1,6 @@
 package br.ufmt.proman.projetoStakeholder;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -27,6 +28,15 @@ public class ProjetoStakeholder {
     @Id
     @GeneratedValue(generator = "seqProjetoStakeholder", strategy = GenerationType.SEQUENCE)
     private int idProjetoStakeholder;
+
+    @Column(name = "funcao_projeto_stakeholder", length = 100)
+    private String funcaoProjetoStakeholder;
+
+    @Column(name = "influencia_projeto_stakeholder", length = 100)
+    private String influenciaProjetoStakeholder;
+
+    @Column(name = "interesse_projeto_stakeholder", length = 100)
+    private String interesseProjetoStakeholder;
 
     @ManyToOne
     @JoinColumn(name = "projeto_id")
