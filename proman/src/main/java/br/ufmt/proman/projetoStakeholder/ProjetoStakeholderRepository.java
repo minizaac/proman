@@ -1,5 +1,7 @@
 package br.ufmt.proman.projetoStakeholder;
 
-public class ProjetoStakeholderRepository {
+import org.springframework.data.jpa.repository.support.JpaRepositoryImplementation;
+
+public interface ProjetoStakeholderRepository extends JpaRepositoryImplementation<ProjetoStakeholder,Integer> {
     
 }

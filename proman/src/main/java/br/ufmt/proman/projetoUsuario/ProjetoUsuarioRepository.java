@@ -1,5 +1,7 @@
 package br.ufmt.proman.projetoUsuario;
 
-public class ProjetoUsuarioRepository {
+import org.springframework.data.jpa.repository.support.JpaRepositoryImplementation;
+
+public interface ProjetoUsuarioRepository extends JpaRepositoryImplementation<ProjetoUsuario,Integer> {
     
 }

@@ -1,5 +1,7 @@
 package br.ufmt.proman.projetoEquipe;
 
-public class ProjetoEquipeRepository {
+import org.springframework.data.jpa.repository.support.JpaRepositoryImplementation;
+
+public interface ProjetoEquipeRepository extends JpaRepositoryImplementation<ProjetoEquipe,Integer> {
     
 }

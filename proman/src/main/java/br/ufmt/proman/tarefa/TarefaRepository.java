@@ -1,5 +1,7 @@
 package br.ufmt.proman.tarefa;
 
-public class TarefaRepository {
+import org.springframework.data.jpa.repository.support.JpaRepositoryImplementation;
+
+public interface TarefaRepository extends JpaRepositoryImplementation<Tarefa,Integer> {
     
 }
