@@ -1,11 +1,17 @@
 package br.ufmt.proman.stakeholder;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+
+import br.ufmt.proman.projetoStakeholder.ProjetoStakeholder;
+
 import javax.persistence.GenerationType;
 
 import lombok.Getter;
@@ -34,6 +40,9 @@ public class Stakeholder {
 
     @Column(name = "interesse_stakeholder", length = 100)
     private String interesseStakeholder;
+
+    @OneToMany(mappedBy = "stakeholder")
+    private List<ProjetoStakeholder> projetoStakeholders;
 
     @Override
     public int hashCode() {

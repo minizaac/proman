@@ -3,8 +3,14 @@ package br.ufmt.proman.projetoStakeholder;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+
+import br.ufmt.proman.projeto.Projeto;
+import br.ufmt.proman.stakeholder.Stakeholder;
+
 import javax.persistence.GenerationType;
 
 import lombok.Getter;
@@ -21,6 +27,14 @@ public class ProjetoStakeholder {
     @Id
     @GeneratedValue(generator = "seqProjetoStakeholder", strategy = GenerationType.SEQUENCE)
     private int idProjetoStakeholder;
+
+    @ManyToOne
+    @JoinColumn(name = "projeto_id")
+    private Projeto projeto;
+
+    @ManyToOne
+    @JoinColumn(name = "stakeholder_id")
+    private Stakeholder stakeholder;
 
     @Override
     public int hashCode() {

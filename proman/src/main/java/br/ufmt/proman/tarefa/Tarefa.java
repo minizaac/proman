@@ -1,15 +1,23 @@
 package br.ufmt.proman.tarefa;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import br.ufmt.proman.projeto.Projeto;
+import br.ufmt.proman.tarefaEquipe.TarefaEquipe;
+
 import javax.persistence.GenerationType;
 
 import lombok.Getter;
@@ -43,6 +51,13 @@ public class Tarefa {
 
     @Column(name = "status_tarefa", length = 100)
     private String statusTarefa;
+
+    @OneToMany(mappedBy = "tarefa")
+    private List<TarefaEquipe> tarefaEquipes;
+
+    @ManyToOne
+    @JoinColumn(name = "projeto_id")
+    private Projeto projeto;
 
     @Override
     public int hashCode() {

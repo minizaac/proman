@@ -1,15 +1,22 @@
 package br.ufmt.proman.projeto;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import br.ufmt.proman.projetoEquipe.ProjetoEquipe;
+import br.ufmt.proman.projetoStakeholder.ProjetoStakeholder;
+import br.ufmt.proman.projetoUsuario.ProjetoUsuario;
+
 import javax.persistence.GenerationType;
 
 import lombok.Getter;
@@ -46,6 +53,15 @@ public class Projeto {
 
     @Column(name = "fase_projeto", length = 1000)
     private String faseProjeto;
+
+    @OneToMany(mappedBy = "projeto")
+    private List<ProjetoStakeholder> projetoStakeholders;
+
+    @OneToMany(mappedBy = "projeto")
+    private List<ProjetoEquipe> projetoEquipes;
+
+    @OneToMany(mappedBy = "projeto")
+    private List<ProjetoUsuario> projetoUsuarios;
 
     @Override
     public int hashCode() {

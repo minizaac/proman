@@ -3,8 +3,14 @@ package br.ufmt.proman.projetoUsuario;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+
+import br.ufmt.proman.projeto.Projeto;
+import br.ufmt.proman.usuario.Usuario;
+
 import javax.persistence.GenerationType;
 
 import lombok.Getter;
@@ -21,6 +27,14 @@ public class ProjetoUsuario {
     @Id
     @GeneratedValue(generator = "seqProjetoUsuario", strategy = GenerationType.SEQUENCE)
     private int idProjetousuario;
+
+    @ManyToOne
+    @JoinColumn(name = "projeto_id")
+    private Projeto projeto;
+
+    @ManyToOne
+    @JoinColumn(name = "usuario_id")
+    private Usuario usuario;
 
     @Override
     public int hashCode() {
