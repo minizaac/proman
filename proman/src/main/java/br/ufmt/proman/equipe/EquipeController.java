@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping(path = "/projeto")
+@RequestMapping(path = "/equipe")
 @RequiredArgsConstructor
 
 public class EquipeController {
